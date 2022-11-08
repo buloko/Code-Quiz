@@ -8,4 +8,4 @@ This project was to test our and improve our understanding of javascript by crea
 https://www.geeksforgeeks.org/how-to-create-a-simple-javascript-quiz/ this was my reference for this project and then I built on top of their code
 
 ##### Live Application
-[click to view project] ()
+[click to view project] (https://buloko.github.io/Code-Quiz/)
