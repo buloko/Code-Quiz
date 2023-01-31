@@ -65,7 +65,58 @@ var Questions = [
             { text: "Sony(Playstation", isCorrect: true },
             { text: "Mircosoft(Xbox)", isCorrect: false },
             { text: "Nintendo(Switch)", isCorrect: false },
-            { text: "PC(any computer really)", isCorrect: false },
+            { text: "PC(any computer really)", isCorrect: false},
+        ]
+    },
+    {
+        id: 6,
+        question: "Which game is widely regarded as the worst videogame ever created?",
+        choices: [
+            { text:"Atari ET", isCorrect: true },
+            { text: "Last of Us 2", isCorrect: false},
+            { text: "Postal 2", isCorrect: false},
+            {text: "Night Trap", isCorrect: false},
+
+        ]
+    },
+    {
+        id: 7,
+        question: "Who invented the video game?",
+        choices: [
+            {text: "William Higinbotham", isCorrect: true},
+            {text: "Bobby Kotick", isCorrect: false},
+            {text: "Andrew Wilson", isCorrect: false},
+            {text: "Strauss Zelnick", isCorrect: false},
+        ]
+    },
+    {
+        id: 8,
+        question: "Where are Nintendo Original headquarters located?",
+        choices: [
+            {text: "Los Angeles", isCorrect: false},
+            {text: "New York", isCorrect: false},
+            {text: "Kyoto", isCorrect: true},
+            {text: "Shanghai", isCorrect: false},
+        ]
+    },
+    {
+        id: 9,
+        question: "What was the relation of Kratos with Zeus in the game God of War?",
+        chioces: [
+            {text:"Father", isCorrect: false},
+            {text: "Cousin", isCorrect: false},
+            {text: "Son", isCorrect: true},
+            {text: "Brother", isCorrect: false},
+        ]
+    },
+    {
+        id: 10,
+        question: "What year was the PlayStation Portable first released in the USA?",
+        chioces: [
+            {text: "2019", isCorrect: false},
+            {text: "2005", isCorrect: false},
+            {text: "2004", isCorrect: true},
+            {text: "2023", isCorrect: false},
         ]
     }
 ]
