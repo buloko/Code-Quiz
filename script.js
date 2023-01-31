@@ -4,7 +4,7 @@ var startAreaEl = document.getElementById('starter-area');
 var questionsEl = document.getElementById('questions');
 startButtonEl.addEventListener('click', function () { 
     startAreaEl.classList.add("hide")
-    questionsEl.classList.remove("hide")
+    questionsEl.classList.remove("hide")  
 })
 {/* <startButtonEl onclick="functionToExecute()"></startButtonEl> */ }
 var Questions = [
@@ -120,8 +120,36 @@ var Questions = [
         ]
     }
 ]
-//start
-var start = true;
+const timer = 120// Time in seconds
+// let currentQuestion = 0;
+let score = 0;
+let timerInterval;
+
+//start quiz when start button is clicked
+document.querySelector("#start-button".addEventListener)("click",startQuiz);
+
+//Function to start the quiz
+function startQuiz() {
+    // Start timer
+   startTimer();
+   
+}
+
+// a timer function 
+function startTimer() {
+    let timeLeft = timer;
+    timerInterval = setInterval(() => {
+        timeLeft --;
+        document.querySelector(#timer).textContent = timeLeft;
+
+        if(timeLeft === 0) {
+            endQuiz();
+        
+        }
+    }, 1000);
+}
+
+
 
 //peform repeatedly
 function iterate(id) {
@@ -246,11 +274,10 @@ function checkAnswer(event){
 
 
 
-// a timer function 
-
 
 
 
 
 //getQuestion
 
+//
