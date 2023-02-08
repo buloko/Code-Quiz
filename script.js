@@ -1,3 +1,4 @@
+var timerEL = document.querySelector("#time");
 var startButtonEl = document.getElementById('start-button');
 //one main function that starts the quiz: startQuiz
 var startAreaEl = document.getElementById('starter-area');
@@ -7,7 +8,7 @@ startButtonEl.addEventListener('click', function () {
     questionsEl.classList.remove("hide")  
 })
 {/* <startButtonEl onclick="functionToExecute()"></startButtonEl> */ }
-var Questions = [
+const Questions = [
     {
         id: 0,
         question: "What was first commercially sucessful videogame?",
@@ -120,34 +121,9 @@ var Questions = [
         ]
     }
 ]
-const timer = 120// Time in seconds
-// let currentQuestion = 0;
-let score = 0;
-let timerInterval;
-
-//start quiz when start button is clicked
-document.querySelector("#start-button".addEventListener)("click",startQuiz);
-
-//Function to start the quiz
-function startQuiz() {
-    // Start timer
-   startTimer();
-   
-}
-
-// a timer function 
-function startTimer() {
-    let timeLeft = timer;
-    timerInterval = setInterval(() => {
-        timeLeft --;
-        document.querySelector(#timer).textContent = timeLeft;
-
-        if(timeLeft === 0) {
-            endQuiz();
-        
-        }
-    }, 1000);
-}
+//start quiz
+const timer = 10;//time in seconds
+var start = true;
 
 
 
@@ -159,7 +135,7 @@ function iterate(id) {
     // highscore[0].innerText = "";
 
     //Getting the question
-    var question = document.getElementById("question");
+    const question = document.getElementById("question");
 
     //setting the question text
     question.innerText = Questions[id].question;
@@ -225,7 +201,7 @@ function iterate(id) {
         op4.style.backgroundColor = "purple";
         selected = op4.value;
     })
-
+    
     // Grabbing the evaluate button
     const evaluate = document.getElementsByClassName("evaluate");
 
@@ -280,4 +256,15 @@ function checkAnswer(event){
 
 //getQuestion
 
-//
+//timer
+function startTimer () {
+    let timeLeft = timer;
+    timerInterval = setInterval (() => {
+        timeLeft --;
+        document.querySelector("timer").textContent = timeLeft
+        
+        if(timeLeft===0) {
+            endQuiz();
+        }
+    },1000);
+}
