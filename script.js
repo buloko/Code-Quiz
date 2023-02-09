@@ -1,8 +1,9 @@
 var timerEL = document.querySelector("#time");
 var startButtonEl = document.getElementById('start-button');
-//one main function that starts the quiz: startQuiz
 var startAreaEl = document.getElementById('starter-area');
-var questionsEl = document.getElementById('questions');
+var endScreenEl = document.getElementById("#end-screen");
+var submitButton = document.getElementById("#submit")
+var quizEl = document.getElementById("#questions");
 startButtonEl.addEventListener('click', function () { 
     startAreaEl.classList.add("hide")
     questionsEl.classList.remove("hide")  
