@@ -178,8 +178,11 @@ function pickTheAnswer() {
         }
     }
    currentQuestion++;
-   if (currentQuestion < Questions.length)
-}
+   if (currentQuestion < Questions.length) {
+    goToNextQuestion();
+   } else {
+    endScreen
+   }
 //peform repeatedly
 function iterate(id) {
 
