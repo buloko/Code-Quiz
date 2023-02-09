@@ -145,6 +145,9 @@ startTimer();
 goToNextQuestion();
 }
 
+function goToNextQuestion() {
+    renderQuestion(randomQuestions[currentQuestion]);
+};
 
 //peform repeatedly
 function iterate(id) {
