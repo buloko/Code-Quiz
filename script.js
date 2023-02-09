@@ -11,11 +11,13 @@ var messageEl = document.getElementById("#message");
 var finalScoreEl = document.getElementById("#final-score");
 var putName = document.getElementById("#putName");
 
-startButtonEl.addEventListener('click', function () { 
-    startAreaEl.classList.add("hide")
-    questionsEl.classList.remove("hide")  
-})
-{/* <startButtonEl onclick="functionToExecute()"></startButtonEl> */ }
+
+var timer;
+var timeLeft;
+
+var randomQuestions;
+var currentQuestion;
+
 const Questions = [
     {
         id: 0,
