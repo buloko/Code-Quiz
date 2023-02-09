@@ -149,6 +149,21 @@ function goToNextQuestion() {
     renderQuestion(randomQuestions[currentQuestion]);
 };
 
+function renderQuestion(question) {
+    questionEl.textContent = question.question;
+    console.log(qiestion.answers);
+    answerEl.textContent = forEach((answer) => {
+        var choiceButton = document.createElement("button");
+        choiceButton.textContent = answer.text;
+        choiceButton.classList.add("btn");
+        if(answer.isCorrect) {
+            choiceButton.dataset.corrrect = answer.corrrect;
+        }
+        answerEl.appendChild(choiceButton);
+        choiceButton.addEventListener("click", pickTheAnswer);
+    });
+}
+
 //peform repeatedly
 function iterate(id) {
 
