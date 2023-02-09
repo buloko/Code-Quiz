@@ -164,6 +164,22 @@ function renderQuestion(question) {
     });
 }
 
+//
+function pickTheAnswer() {
+    var dataCorrect = this.dataset.correct;
+
+    if(dataCorrect) {
+        messageEl.textContent = "Correct";   
+    } else {
+        messageEl.textContent = "WRONG";
+        timeLeft = timeLeft - 10;
+        if(timeLeft <= 0) {
+            clearInterval(timer);
+        }
+    }
+   currentQuestion++;
+   if (currentQuestion < Questions.length)
+}
 //peform repeatedly
 function iterate(id) {
 
