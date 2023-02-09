@@ -183,6 +183,13 @@ function pickTheAnswer() {
    } else {
     endScreen();
    }
+
+   function endScreen() {
+    clearInterval(timer);
+    quizEl.classList.add("hide");
+    endScreenEl.classList.remove("hide");
+    finalScoreEl.textConten = timeLeft;
+   }
 //peform repeatedly
 function iterate(id) {
 
