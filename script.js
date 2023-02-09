@@ -131,10 +131,19 @@ const Questions = [
         ]
     }
 ]
-//start quiz
-const timer = 10;//time in seconds
-var start = true;
-
+ function startQuiz () {
+    timeLeft = 150;
+    startButtonEl.disabled = true;
+    randomQuestions = question.sort(function () {
+        return Math.random() - 0.5;
+    });
+console.log(randomQuestions);
+currentQuestion = 0;
+startAreaEl.classList.add("hide");
+quizEl.classList.remove("hide");
+startTimer();
+goToNextQuestion();
+}
 
 
 //peform repeatedly
