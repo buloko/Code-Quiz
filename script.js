@@ -181,7 +181,7 @@ function pickTheAnswer() {
    if (currentQuestion < Questions.length) {
     goToNextQuestion();
    } else {
-    endScreen
+    endScreen();
    }
 //peform repeatedly
 function iterate(id) {
