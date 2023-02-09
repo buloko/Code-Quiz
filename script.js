@@ -3,7 +3,14 @@ var startButtonEl = document.getElementById('start-button');
 var startAreaEl = document.getElementById('starter-area');
 var endScreenEl = document.getElementById("#end-screen");
 var submitButton = document.getElementById("#submit")
+
 var quizEl = document.getElementById("#questions");
+var questionEl = document.getElementById("#question-title");
+var answerEl = document.getElementById("#choices");
+var messageEl = document.getElementById("#message");
+var finalScoreEl = document.getElementById("#final-score");
+var putName = document.getElementById("#putName");
+
 startButtonEl.addEventListener('click', function () { 
     startAreaEl.classList.add("hide")
     questionsEl.classList.remove("hide")  
