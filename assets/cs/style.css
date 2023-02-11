@@ -4,12 +4,22 @@ body {
     width: 100vw;
     height: 100vh;
 }
-.h1{
+*{
+    box-sizing: border-box;
+    font-family: 'Geostar Fill', cursive;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+/* .h1{
     width: 100px;;
     height: 100px;
     text-align: center;
     justify-content: center;
-}
+} */
 .hide{
     display: none;
 }
@@ -36,16 +46,16 @@ body {
 	transform-style: preserve-3d;
 
 }
-.panel {
+/* .panel {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center;
     align-items: center;
-   
-}
+    */
 
-.question-container {
+
+/* .question-container {
     margin: 20px;
     padding: 5px;
     width: 80vw;
@@ -53,7 +63,7 @@ body {
     background-color: black;
     font-size: medium;
     text-align: center;
-}
+} */
 
 #Highscore {
     margin: 10px;
