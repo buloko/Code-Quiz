@@ -13,13 +13,13 @@
 
   <body>
     <div class="flex">
-    <div id="Highscores"><a href="./highscores.html">View Highscores</div>
+    <div id="Highscores"><a href="./highscores.html"></a>View Highscores</div>
 
     <div id="Timer">Time: <span id="Timer">0</span> </div>
     </div>
     
-    <div class ="wrapper" class=""> 
-      <div id="starter-area">
+    <div class ="wrapper"> 
+      <div id="starter-area" class="Start">
         <h1>Video Game Quiz Challenge</h1>
         <p>
           Try to answer to the best of your ability and making sure nothing is
@@ -29,9 +29,15 @@
         </p>
         <button id="start-button" class="button">Start Quiz</button>
       </div>
+
     </div>
-    <div class="questions-container hide" id="questions">
-      <h2 id="question">Put your gaming knowledge to the test!</h2>
+    <div id="questions" class="hide">
+     <h3 id="question-title"></h3>
+     <div id="choices" class="choices"></div> 
+     <div id="message"></div>
+    </div>
+
+      <h2>Put your gaming knowledge to the test!</h2>
       
 
     <script src="./script.js"></script>
