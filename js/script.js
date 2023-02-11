@@ -1,4 +1,4 @@
-var timerEL = document.querySelector("#time");
+var timerEL = document.querySelector("#Timer");
 var startButton = document.getElementById("start-button");
 var startArea = document.getElementById("starter-area");
 var endScreenEl = document.getElementById("#end-screen");
@@ -17,7 +17,7 @@ var timeLeft;
 var randomQuestions;
 var currentQuestion;
 
-const Questions = [
+var Questions = [
   {
     // id: 0,
     question: "What was first commercially sucessful videogame?",
@@ -173,7 +173,7 @@ function pickTheAnswer() {
   if (isCorrect) {
     messageEl.textContent = "Correct";
   } else {
-    messageEl.textContent = "WRONG";
+    messageEl.textContent = "Wrong";
     timeLeft = timeLeft - 10;
     if (timeLeft <= 0) {
       clearInterval(timer);
@@ -195,10 +195,10 @@ function pickTheAnswer() {
   function saveHighscore(event) {
     var putName = putNameEl.value;
     console.log(putName);
-    var highScore = [{ name: putName, score: timeLeft }];
+    var highScore = [{ name: Name, score: timeLeft }];
     console.log(highScore);
-    localStorage.setItem("High-Scores"), JSON.stringify(highScore);
-    putNameEl.value = "";
+    localStorage.setItem('High-Scores'), JSON.stringify(highScore);
+    putNameEl.value = '';
   }
   //timer
   function startTimer() {
@@ -214,7 +214,7 @@ function pickTheAnswer() {
   }
 }
 startButton.addEventListener("click", startQuiz);
-// submitButton.addEventListener("click", saveHighScore);
+submitButton.addEventListener("click", saveHighScore);
 
 //peform repeatedly
 // function iterate(id) {
