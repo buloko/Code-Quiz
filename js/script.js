@@ -1,4 +1,4 @@
-var timerEL = document.querySelector("#Timer");
+var timerEL = document.querySelector("#timer");
 var startButton = document.getElementById("start-button");
 var startArea = document.getElementById("starter-area");
 var endScreenEl = document.getElementById("#end-screen");
@@ -214,7 +214,7 @@ function pickTheAnswer() {
   }
 }
 startButton.addEventListener("click", startQuiz);
-submitButton.addEventListener("click", saveHighScore);
+// submitButton.addEventListener("click", saveHighScore);
 
 //peform repeatedly
 // function iterate(id) {
