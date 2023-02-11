@@ -113,7 +113,7 @@ var Questions = [
     // id: 9,
     question:
       "What was the relation of Kratos with Zeus in the game God of War?",
-    chioces: [
+    choices: [
       { text: "Father", isCorrect: false },
       { text: "Cousin", isCorrect: false },
       { text: "Son", isCorrect: true },
@@ -124,7 +124,7 @@ var Questions = [
     // id: 10,
     question:
       "What year was the PlayStation Portable first released in the USA?",
-    chioces: [
+    choices: [
       { text: "2019", isCorrect: false },
       { text: "2005", isCorrect: false },
       { text: "2004", isCorrect: true },
@@ -135,13 +135,13 @@ var Questions = [
 
 function startQuiz() {
   timeLeft = 120;
-  startButtonEl.disabled = true;
-  randomQuestions = question.sort(function () {
+  startButton.disabled = true;
+  randomQuestions = Questions.sort(function () {
     return Math.random() - 0.5;
   });
   console.log(randomQuestions);
   currentQuestion = 0;
-  startAreaEl.classList.add("hide");
+  startArea.classList.add("hide");
   quizEl.classList.remove("hide");
   startTimer();
   goToNextQuestion();
@@ -202,17 +202,14 @@ function pickTheAnswer() {
   }
   //timer
   function startTimer() {
-    let timeLeft = timer;
-    timerInterval = setInterval(() => {
+    timer = setInterval(function() {
       timeLeft--;
-      document.querySelector("timer").textContent = timeLeft;
-
+      timerEl.textContent = timeLeft;
       if (timeLeft === 0) {
-        endQuiz();
+        clearInterval(timer);
       }
-    }, 1000);
+    },1000);
   }
-}
 startButton.addEventListener("click", startQuiz);
 // submitButton.addEventListener("click", saveHighScore);
 
