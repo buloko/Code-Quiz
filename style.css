@@ -15,7 +15,7 @@ body {
 
 }
 
-#btn {
+.button {
     display: block;
 	position: relative;
 	margin: 0.5em 0;
