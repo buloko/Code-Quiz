@@ -9,7 +9,7 @@ var questionEl = document.getElementById("#question-title");
 var answerEl = document.getElementById("#choices");
 var messageEl = document.getElementById("#message");
 var finalScoreEl = document.getElementById("#final-score");
-var putName = document.getElementById("#putName");
+var putNameEl = document.getElementById("#putName");
 
 var timer;
 var timeLeft;
@@ -153,11 +153,11 @@ function goToNextQuestion() {
 
 function renderQuestion(question) {
   questionEl.textContent = question.question;
-  console.log(qiestion.answers);
+  console.log(question.answers);
   answerEl.textContent = forEach((answer) => {
     var choiceButton = document.createElement("button");
     choiceButton.textContent = answer.text;
-    choiceButton.classList.add("btn");
+    choiceButton.classList.add("button");
     if (answer.isCorrect) {
       choiceButton.dataset.corrrect = answer.corrrect;
     }
