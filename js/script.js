@@ -12,12 +12,13 @@ var finalScoreEl = document.getElementById("final-score");
 var putNameEl = document.getElementById("putName");
 
 var timer;
-var timeLeft;
+var timeLeft
+var score = 0;
 
 var randomQuestions;
 var currentQuestion;
 
-var questions = [
+let questions = [
   {
     // id: 0,
     question: "What was first commercially sucessful videogame?",
@@ -150,21 +151,23 @@ function startQuiz() {
 function goToNextQuestion() {
   renderQuestion(randomQuestions[currentQuestion]);
 }
+
 function renderQuestion(question) {
   questionEl.textContent = question.question;
   console.log(question.answers);
-  question.answers.forEach((answer) => {
+  answerEl.textContent = " ";
+  question.answers.forEach((answers) => {
     var choiceButton = document.createElement("button");
-    choiceButton.textContent = answer.text;
+    choiceButton.textContent = answers.text;
     choiceButton.classList.add("button");
-    if (answer.isCorrect) {
-      choiceButton.dataset.isCorrect = answer.isCorrect;
+    if (answerEl.isCorrect) {
+      choiceButton.dataset.isCorrect = answers.isCorrect;
     }
     answerEl.appendChild(choiceButton);
     choiceButton.addEventListener("click", pickTheAnswer);
   });
 }
-//
+
 function pickTheAnswer() {
   var isCorrect = this.dataset.isCorrect;
 
@@ -178,36 +181,36 @@ function pickTheAnswer() {
     }
   }
   currentQuestion++;
-  if (currentQuestion < Questions.length) {
+  if (currentQuestion < questions.length) {
     goToNextQuestion();
   } else {
     endScreen();
   }
 }
-  function endScreen() {
-    clearInterval(timer);
-    quizEl.classList.add("hide");
-    endScreenEl.classList.remove("hide");
-    finalScoreEl.textConten = timeLeft;
-  }
-  function saveHighscore(event) {
-    var putName = putNameEl.value;
-    console.log(putName);
-    var highScore = [{ name: Name, score: timeLeft }];
-    console.log(highScore);
-    localStorage.setItem('High-Scores'), JSON.stringify(highScore);
-    putNameEl.value = '';
-  }
-  //timer
-  function startTimer() {
-    timer = setInterval(function() {
-      timeLeft--;
-      timerEl.textContent = timeLeft;
-      if (timeLeft === 0) {
-        clearInterval(timer);
-      }
-    },1000);
-  }
+function endScreen() {
+  clearInterval(timer);
+  quizEl.classList.add("hide");
+  endScreenEl.classList.remove("hide");
+  finalScoreEl.textConten = timeLeft;
+}
+function saveHighscore(event) {
+  var putName = putNameEl.value;
+  console.log(putName);
+  var highScore = [{ name: Name, score: timeLeft }];
+  console.log(highScore);
+  localStorage.setItem("High-Scores"), JSON.stringify(highScore);
+  putNameEl.value = "";
+}
+//timer
+function startTimer() {
+  timer = setInterval(function () {
+    timeLeft--;
+    timerEl.textContent = timeLeft;
+    if (timeLeft === 0) {
+      clearInterval(timer);
+    }
+  }, 1000);
+}
 startButton.addEventListener("click", startQuiz);
 
 // submitButton.addEventListener("click", saveHighScore);

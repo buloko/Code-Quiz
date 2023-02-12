@@ -12,16 +12,18 @@ body {
     font-size: 20px;
     text-align: center;  
 }
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
 .wrapper{
     display: flex;
     justify-content: center;
 }
-/* .h1{
-    width: 100px;;
-    height: 100px;
-    text-align: center;
-    justify-content: center;
-} */
+h1{
+    font-size: 5.4rem;
+    font-weight: bold;
+}
 .hide{
     display: none;
 }
