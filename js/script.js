@@ -1,15 +1,15 @@
-var timerEL = document.querySelector("#timer");
+var timerEl = document.querySelector("timer");
 var startButton = document.getElementById("start-button");
 var startArea = document.getElementById("starter-area");
-var endScreenEl = document.getElementById("#end-screen");
-var submitButton = document.getElementById("#submit");
+var endScreenEl = document.getElementById("end-screen");
+var submitButton = document.getElementById("submit");
 
-var quizEl = document.getElementById("#questions");
-var questionEl = document.getElementById("#question-title");
-var answerEl = document.getElementById("#choices");
-var messageEl = document.getElementById("#message");
-var finalScoreEl = document.getElementById("#final-score");
-var putNameEl = document.getElementById("#putName");
+var quizEl = document.getElementById("questions");
+var questionEl = document.getElementById("question-title");
+var answerEl = document.getElementById("choices");
+var messageEl = document.getElementById("message");
+var finalScoreEl = document.getElementById("final-score");
+var putNameEl = document.getElementById("putName");
 
 var timer;
 var timeLeft;
@@ -17,7 +17,7 @@ var timeLeft;
 var randomQuestions;
 var currentQuestion;
 
-var Questions = [
+var questions = [
   {
     // id: 0,
     question: "What was first commercially sucessful videogame?",
@@ -136,7 +136,7 @@ var Questions = [
 function startQuiz() {
   timeLeft = 120;
   startButton.disabled = true;
-  randomQuestions = Questions.sort(function () {
+  randomQuestions = questions.sort(function () {
     return Math.random() - 0.5;
   });
   console.log(randomQuestions);
@@ -150,22 +150,20 @@ function startQuiz() {
 function goToNextQuestion() {
   renderQuestion(randomQuestions[currentQuestion]);
 }
-
 function renderQuestion(question) {
   questionEl.textContent = question.question;
   console.log(question.answers);
-  answerEl.textContent = forEach((answer) => {
+  question.answers.forEach((answer) => {
     var choiceButton = document.createElement("button");
     choiceButton.textContent = answer.text;
     choiceButton.classList.add("button");
     if (answer.isCorrect) {
-      choiceButton.dataset.corrrect = answer.corrrect;
+      choiceButton.dataset.isCorrect = answer.isCorrect;
     }
     answerEl.appendChild(choiceButton);
     choiceButton.addEventListener("click", pickTheAnswer);
   });
 }
-
 //
 function pickTheAnswer() {
   var isCorrect = this.dataset.isCorrect;
@@ -185,7 +183,7 @@ function pickTheAnswer() {
   } else {
     endScreen();
   }
-
+}
   function endScreen() {
     clearInterval(timer);
     quizEl.classList.add("hide");
@@ -211,6 +209,7 @@ function pickTheAnswer() {
     },1000);
   }
 startButton.addEventListener("click", startQuiz);
+
 // submitButton.addEventListener("click", saveHighScore);
 
 //peform repeatedly
