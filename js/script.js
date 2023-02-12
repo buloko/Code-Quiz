@@ -18,11 +18,11 @@ var score = 0;
 var randomQuestions;
 var currentQuestion;
 
-let questions = [
+var questions = [
   {
     // id: 0,
     question: "What was first commercially sucessful videogame?",
-    choices: [
+    answers: [
       { text: "Pong", isCorrect: true },
       { text: "Mario", isCorrect: false },
       { text: "Rock,Paper,Scissors", isCorrect: false },
@@ -32,7 +32,7 @@ let questions = [
   {
     // id: 1,
     question: "What was the best selling game of all time?",
-    choices: [
+    answers: [
       { text: "Mario", isCorrect: false },
       { text: "Fifa", isCorrect: false },
       { text: "Minecraft", isCorrect: true },
@@ -42,7 +42,7 @@ let questions = [
   {
     // id: 2,
     question: "What kind of animal is Sonic?",
-    choices: [
+    answers: [
       { text: "Alligator", isCorrect: false },
       { text: "Echindna", isCorrect: false },
       { text: "Hedgehog", isCorrect: true },
@@ -52,7 +52,7 @@ let questions = [
   {
     // id: 3,
     question: "When was the PS5 released?",
-    choices: [
+    answers: [
       { text: "November 2020", isCorrect: true },
       { text: "June 2019", isCorrect: false },
       { text: "December 2021", isCorrect: false },
@@ -62,7 +62,7 @@ let questions = [
   {
     // id: 4,
     question: "What is the armored vehicle in Halo?",
-    choices: [
+    answers: [
       { text: "Blue Falcon", isCorrect: false },
       { text: "Ice Cream Truck", isCorrect: false },
       { text: "Warthog", isCorrect: true },
@@ -72,7 +72,7 @@ let questions = [
   {
     // id: 5,
     question: "Which company makes the best console?",
-    choices: [
+    answers: [
       { text: "Sony(Playstation", isCorrect: true },
       { text: "Mircosoft(Xbox)", isCorrect: false },
       { text: "Nintendo(Switch)", isCorrect: false },
@@ -83,7 +83,7 @@ let questions = [
     // id: 6,
     question:
       "Which game is widely regarded as the worst videogame ever created?",
-    choices: [
+    answers: [
       { text: "Atari ET", isCorrect: true },
       { text: "Last of Us 2", isCorrect: false },
       { text: "Postal 2", isCorrect: false },
@@ -93,7 +93,7 @@ let questions = [
   {
     // id: 7,
     question: "Who invented the video game?",
-    choices: [
+    answers: [
       { text: "William Higinbotham", isCorrect: true },
       { text: "Bobby Kotick", isCorrect: false },
       { text: "Andrew Wilson", isCorrect: false },
@@ -103,7 +103,7 @@ let questions = [
   {
     // id: 8,
     question: "Where are Nintendo Original headquarters located?",
-    choices: [
+    answers: [
       { text: "Los Angeles", isCorrect: false },
       { text: "New York", isCorrect: false },
       { text: "Kyoto", isCorrect: true },
@@ -114,7 +114,7 @@ let questions = [
     // id: 9,
     question:
       "What was the relation of Kratos with Zeus in the game God of War?",
-    choices: [
+    answers: [
       { text: "Father", isCorrect: false },
       { text: "Cousin", isCorrect: false },
       { text: "Son", isCorrect: true },
@@ -125,7 +125,7 @@ let questions = [
     // id: 10,
     question:
       "What year was the PlayStation Portable first released in the USA?",
-    choices: [
+    answers: [
       { text: "2019", isCorrect: false },
       { text: "2005", isCorrect: false },
       { text: "2004", isCorrect: true },
@@ -133,6 +133,7 @@ let questions = [
     ],
   },
 ];
+
 
 function startQuiz() {
   timeLeft = 120;
@@ -144,6 +145,7 @@ function startQuiz() {
   currentQuestion = 0;
   startArea.classList.add("hide");
   quizEl.classList.remove("hide");
+  answerEl.classList.remove("hide");
   startTimer();
   goToNextQuestion();
 }
@@ -156,12 +158,12 @@ function renderQuestion(question) {
   questionEl.textContent = question.question;
   console.log(question.answers);
   answerEl.textContent = " ";
-  question.answers.forEach((answers) => {
+  question.answers.forEach((answer) => {
     var choiceButton = document.createElement("button");
-    choiceButton.textContent = answers.text;
+    choiceButton.textContent = answer.text;
     choiceButton.classList.add("button");
     if (answerEl.isCorrect) {
-      choiceButton.dataset.isCorrect = answers.isCorrect;
+      choiceButton.dataset.isCorrect = answer.isCorrect;
     }
     answerEl.appendChild(choiceButton);
     choiceButton.addEventListener("click", pickTheAnswer);
@@ -213,7 +215,7 @@ function startTimer() {
 }
 startButton.addEventListener("click", startQuiz);
 
-// submitButton.addEventListener("click", saveHighScore);
+submitButton.addEventListener("click", saveHighScore);
 
 //peform repeatedly
 // function iterate(id) {
