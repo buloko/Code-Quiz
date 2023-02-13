@@ -171,9 +171,9 @@ function renderQuestion(question) {
 }
 
 function pickTheAnswer() {
-  var isCorrect = this.dataset.isCorrect;
+  var dataCorrect = this.dataset.isCorrect;
 
-  if (isCorrect) {
+  if (dataCorrect) {
     messageEl.textContent = "Correct";
   } else {
     messageEl.textContent = "Wrong";
@@ -198,11 +198,12 @@ function endScreen() {
 function saveHighscore(event) {
   var putName = putNameEl.value;
   console.log(putName);
-  var highScore = [{ name: Name, score: timeLeft }];
+  var highScore = JSON.parse(localStorage.getItem("High-Scores")) || [];
+  highScore.push({ name: putName, score: timeLeft });
   console.log(highScore);
-  localStorage.setItem("High-Scores"), JSON.stringify(highScore);
+  localStorage.setItem("High-Scores", JSON.stringify(highScore));
   putNameEl.value = "";
-}
+};
 //timer
 function startTimer() {
   timer = setInterval(function () {
