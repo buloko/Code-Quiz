@@ -13,7 +13,6 @@ var putNameEl = document.getElementById("putName");
 
 var timer;
 var timeLeft
-var score = 0;
 
 var randomQuestions;
 var currentQuestion;
@@ -162,8 +161,8 @@ function renderQuestion(question) {
     var choiceButton = document.createElement("button");
     choiceButton.textContent = answer.text;
     choiceButton.classList.add("button");
-    if (answerEl.isCorrect) {
-      choiceButton.dataset.correct = "true";
+    if (answer.correct) {
+      choiceButton.dataset.correct = answer.correct;
     }
     answerEl.appendChild(choiceButton);
     choiceButton.addEventListener("click", pickTheAnswer);
@@ -171,7 +170,7 @@ function renderQuestion(question) {
 }
 
 function pickTheAnswer() {
-  var isCorrect = this.dataset.correct === "true";
+  var isCorrect = this.dataset.correct;
 
   if (isCorrect) {
     messageEl.textContent = "Correct";
@@ -199,10 +198,9 @@ function endScreen() {
 function saveHighscore(event) {
   var putName = putNameEl.value;
   console.log(putName);
-  var highScore = JSON.parse(localStorage.getItem("High-Scores")) || [];
-  highScore.push({ name: putName, score: timeLeft });
+  var highScore = [{name: putName, score: timeLeft }];
   console.log(highScore);
-  localStorage.setItem("High-Scores", JSON.stringify(highScore));
+  localStorage.setItem('High-Scores', JSON.stringify(highScore));
   putNameEl.value = "";
 };
 //timer
