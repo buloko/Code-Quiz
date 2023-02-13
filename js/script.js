@@ -11,7 +11,7 @@ var messageEl = document.getElementById("message");
 var finalScoreEl = document.getElementById("final-score");
 var putNameEl = document.getElementById("putName");
 
-var time;
+var timer;
 var timeLeft
 var score = 0;
 
@@ -205,7 +205,7 @@ function saveHighscore(event) {
 }
 //timer
 function startTimer() {
-  timerEl = setInterval(function () {
+  timer = setInterval(function () {
     timeLeft--;
     timerEl.textContent = timeLeft;
     if (timeLeft === 0) {
