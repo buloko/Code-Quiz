@@ -1,4 +1,4 @@
-var timerEl = document.querySelector("timer");
+var timerEl = document.getElementById("timer");
 var startButton = document.getElementById("start-button");
 var startArea = document.getElementById("starter-area");
 var endScreenEl = document.getElementById("end-screen");
@@ -11,7 +11,7 @@ var messageEl = document.getElementById("message");
 var finalScoreEl = document.getElementById("final-score");
 var putNameEl = document.getElementById("putName");
 
-var timer;
+var time;
 var timeLeft
 var score = 0;
 
@@ -205,7 +205,7 @@ function saveHighscore(event) {
 }
 //timer
 function startTimer() {
-  timer = setInterval(function () {
+  timerEl = setInterval(function () {
     timeLeft--;
     timerEl.textContent = timeLeft;
     if (timeLeft === 0) {
@@ -215,7 +215,7 @@ function startTimer() {
 }
 startButton.addEventListener("click", startQuiz);
 
-submitButton.addEventListener("click", saveHighScore);
+// submitButton.addEventListener("click", saveHighScore);
 
 //peform repeatedly
 // function iterate(id) {
